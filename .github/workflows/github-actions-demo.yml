@@ -1,15 +1,28 @@
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 jobs:
-  build:
+  terraform:
+    name: 'Terraform'
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
     
-       - run: |
+      - name: Terraform Format
+        id: fmt
+        run: terraform fmt -check
+
+      - run: |
           sudo snap install terraform --classic
           ls
           pwd
 
-       - run: |
-          terraform init
-          terraform plan
-          terraform apply
+      - run: |
+            terraform init
+            terraform plan
+            terraform apply
