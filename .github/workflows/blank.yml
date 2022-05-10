@@ -1,0 +1,10 @@
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+       - run: |
+          terraform init
+          terraform plan
+          terraform apply
