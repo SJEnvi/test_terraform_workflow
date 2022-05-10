@@ -6,6 +6,8 @@ jobs:
     
        - run: |
           sudo snap install terraform --classic
+          ls
+          pwd
 
        - run: |
           terraform init
