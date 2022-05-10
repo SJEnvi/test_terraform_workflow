@@ -5,8 +5,6 @@ jobs:
     steps:
 
        - run: |
-          cd ..
-          cd ..
           terraform init
           terraform plan
           terraform apply
