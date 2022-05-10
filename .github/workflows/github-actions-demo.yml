@@ -3,6 +3,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    
+       - run: |
+          sudo snap install terraform --classic
 
        - run: |
           terraform init
